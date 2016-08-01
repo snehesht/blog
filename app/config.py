@@ -11,5 +11,5 @@ GIT_REPO_SECRET = '1FvpX3tzv7K5kUK3hz76rvDEix25YFPV'
 
 # Server Config
 PORT=5000
-HOST='localhost'
+HOST='0.0.0.0'
 DEBUG_STATUS=False

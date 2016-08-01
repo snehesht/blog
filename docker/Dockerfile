@@ -1,12 +1,19 @@
 FROM python:3.5
 
+ENV BLOGPOSTS_REPO https://github.com/snehesht/blogposts
 
-RUN git clone https://github.com/snehesht/blog && \
+RUN mkdir -p /www && \
+	cd www && \
+	git clone https://github.com/snehesht/blog && \
 	cd blog && \
 	pip install -r Requirements.in && \
 	cd app && \
-	python3 app.py
+	git clone $BLOGPOSTS_REPO
+
+ADD start_server.sh /www
+CMD ["chmod","+x","/www/start_server.sh"]
 
 EXPOSE 5000
 
+CMD ["sh","/www/start_server.sh"]
 
