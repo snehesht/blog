@@ -1,0 +1,248 @@
+@import "bootstrap";
+@import url(https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+// Background
+$base_background_color: #FCFCFC;
+// Colors
+$primary_color: #3322FF;
+$white: #FFFFFF;
+
+// Typography
+$default_font_size: 16px;
+$body_font_size: $default_font_size;
+$sub_header_font_size: 20px;
+$header_font_size: 24px;
+$metadata_font_size: 14px;
+
+
+$primary_font: "Hack","monospace";
+$seconday_font: $primary_font;
+
+body {
+	font-family: $primary_font;
+	font-size: $default_font_size;
+	padding-top: 20px;
+	color: #1f1f1f;
+	background-color: $base_background_color;
+	line-height: 24px;
+}
+
+a {
+	position: relative;
+	text-decoration: none;
+	color: $primary_color;
+	outline: none;
+}
+
+h1 {
+	font-size: $header_font_size;
+	font-family: $primary_font;
+}
+
+h2 {
+	font-size: $sub_header_font_size;
+	font-family: $primary_font;
+}
+
+.test-cols {
+	border: 1px $primary_color solid;
+}
+
+img {
+	align-self: center;
+}
+
+#navbar {
+	font-size: $body_font_size;
+	padding-top: 10px;
+	#logo {
+		a {
+			padding: 5px 5px;
+			border: 1px solid $primary_color;
+			background-color: $primary_color;
+			color: $white;
+			border-radius: 2px;
+			font-size: $header_font_size;
+			// font-weight: 700;
+			text-decoration: none;
+		}
+	}
+
+	#boss {
+		float: right;
+		a {
+			font-size: $body_font_size;
+			padding: 5px 10px;
+			border: 1px solid $primary_color;
+			border-radius: 4px;
+			text-decoration: none;
+		}
+	}
+	#minions {
+		float: right;
+		ul {
+			margin: 0px;
+			padding: 0px;
+			li {
+				// padding: 0px 10px;
+				list-style: none;
+				display: inline-block;
+			}
+		}
+	}
+	#postmenu {
+		padding-top: 10px;
+	}
+
+}
+
+.content, .anime {
+	a {
+		position: relative;
+		text-decoration: none;
+		color: $primary_color;
+		outline: none;
+	}
+	a:hover {
+		color: $primary_color;
+	}
+	/* Underline effect */
+	/* Credits: http://tobiasahlin.com/blog/css-trick-animating-link-underlines */
+	a:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 1px;
+		bottom: -2;
+		left: 0;
+		background-color: $primary_color;
+		visibility: hidden;
+		-webkit-transform: scaleX(0);
+		transform: scaleX(0);
+		-webkit-transition: all 0.2s ease-in-out 0s;
+		transition: all 0.2s ease-in-out 0s;
+	}
+	a:hover:before {
+		visibility: visible;
+		-webkit-transform: scaleX(1);
+		transform: scaleX(1);
+	}
+}
+
+
+.code {
+	background-color: rgba(200,200,255,0.5);
+	padding: 2px 5px;
+	font-family: monospace;
+	font-size: body_font_size;
+	border-radius:2px;
+}
+
+.post-box {
+	.post-title {
+		padding-top: 50px;
+		font-size: $header_font_size;
+		font-family: $primary_font;
+	}
+	.post-description {
+	padding: 5px 15px;
+	line-height: 32px;
+	}
+	.post-metadata {
+		font-size: $metadata_font_size;
+		font-family: $primary_font;
+		padding: 0px 0px 0px 15px;
+	}
+}
+
+
+.single-page {
+	.single-post-title {
+		padding-top: 50px;
+		font-size: $header_font_size;
+		font-family: $primary_font;
+	}
+	.single-post-metadata {
+		font-size: $metadata_font_size;
+		font-family: $primary_font;
+		padding: 5px 0px 0px 15px;
+		span {
+			padding: 0px 20px 0px 0px;
+		}
+
+	}
+	.single-post-content {
+		font-size: $default_font_size;
+		font-family: $primary_font;
+		line-height: 1.8em;
+	}
+}
+
+// Index Page
+#index-page {
+	position:relative;
+	margin: 0 auto;
+	font-size: $sub_header_font_size;
+	line-height: 32px;
+	#dyn-block {
+		font-size: $sub_header_font_size;
+	}
+	#dyn-cursor-line {
+	font-weight: 400;
+	position: relative;
+	font-size: 32px;
+	}
+	#dyn-cursor {
+
+	font-weight: 400;
+	font-size: 24px;
+	position: relative;
+	top: 22px;
+	left: -16px;
+	color: red;
+	}
+}
+
+@media screen and (max-width: 768px){
+	#index-page {
+		padding-top: 50px;
+	}
+	#minions {
+		padding-top: 10px;
+		ul {
+			li {
+				padding: 0px 20px 0px 0px;
+				list-style: none;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px){
+	#index-page {
+		padding-top: 100px;
+	}
+	#minions {
+		ul {
+			li {
+				padding: 0px 10px 0px 0px;
+				list-style: none;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 1200px){
+	#minions {
+		ul {
+			li {
+				padding: 0px 0px 0px 30px;
+				list-style: none;
+				display: inline-block;
+			}
+		}
+	}
+}

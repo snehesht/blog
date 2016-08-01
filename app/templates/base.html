@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>/blog</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='app.css') }}">
+	</head>
+	<body>
+
+		<div class="container">
+		<!-- { Navigation Bar }  ☰ Menu -->
+		<div id="navbar">
+			<div class="row">
+				<div class="col-xs-7 col-sm-3 col-md-3 col-lg-3">
+					<div id="logo">
+						<a href="/">λ Snehesh</a>
+					</div>
+				</div>
+				<div class="col-sm-7 col-md-7 col-lg-8" id="premenu"></div>
+				<div class="col-xs-5 col-sm-2 com-md-2 col-lg-1">
+					<div id="boss">
+						<a href="#" id="boss-btn">☰</a>
+					</div>
+				</div>
+				<div class="col-xs-12" id="postmenu"></div>
+			</div>
+		</div>
+
+		<!-- {# Main Content  #} -->
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+		</div>
+	<script src="{{ url_for('static',filename='app.js') }}" charset="utf-8"></script>
+	</body>
+</html>
