@@ -1,6 +1,6 @@
 Minimalist Blog Engine
 ======================
-Live demo at [snehesh.me](https://snehesh.me)
+[snehesh.me](https://snehesh.me)
 
 
 _TL;DR_
