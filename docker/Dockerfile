@@ -10,7 +10,7 @@ RUN mkdir -p /www && \
 	cd app && \
 	git clone $BLOGPOSTS_REPO
 
-ADD start_server.sh /www
+ADD https://raw.githubusercontent.com/snehesht/blog/master/docker/start_server.sh /www
 CMD ["chmod","+x","/www/start_server.sh"]
 
 EXPOSE 5000
