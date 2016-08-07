@@ -9,7 +9,7 @@ RUN mkdir -p /www && \
 	cd blog && \
 	pip install -r Requirements.in && \
 	cd app && \
-	git clone $BLOGPOSTS_REPO
+	git clone $POSTS_GIT_REPO
 
 ADD https://raw.githubusercontent.com/snehesht/blog/master/docker/start_server.sh /www
 CMD ["chmod","+x","/www/start_server.sh"]

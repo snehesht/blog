@@ -10,10 +10,20 @@ Publish a blog post with ` git push `
 
 Usage
 -----
+	docker pull snehesht/blogengine:latest
+```
 	Environmental Variables
-	1FvpX3tzv7K5kUK3hz76rvDEix25YFPV'
-	POSTS_GIT_REPO
-	POSTS_GIT_REPO_SECRET
+		POSTS_GIT_REPO
+		POSTS_GIT_REPO_SECRET
+```
+
+```
+	docker run -d \
+	-e POSTS_GIT_REPO="https://github.com/snehesht/BLOGPOSTS_REPO" \
+	-e POSTS_GIT_REPO_SECRET="YOUR_SECRET_HERE" \
+	-p 5000:5000 \
+	--name be1 snehesh/blogengine:latest
+```
 
 Stack
 -----
