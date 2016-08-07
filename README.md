@@ -32,5 +32,3 @@ Stack
 > - Flask
 > - Markdown
 > - Github Webhook
-
-5qs04EbWpxQ2WYFpS6apFqhWDubGqC19
