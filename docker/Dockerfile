@@ -1,6 +1,7 @@
 FROM python:3.5
 
-ENV BLOGPOSTS_REPO https://github.com/snehesht/blogposts
+ENV POSTS_GIT_REPO "https://github.com/snehesht/blogposts"
+ENV POSTS_GIT_REPO_SECRET "THIS IS A SECRET"
 
 RUN mkdir -p /www && \
 	cd www && \

@@ -1,3 +1,4 @@
+import os
 
 # Accepted file formats regex
 # markdown accepted
@@ -5,9 +6,10 @@
 ACCEPTED_FILE_FORMATS = "^.*\.md$" # .md
 
 # Git Repo Config
-GIT_REPO_URL = 'https://github.com/snehesht/blogposts.git'
+# Fetched via environmental variables
+GIT_REPO_URL = os.environ.get('POSTS_GIT_REPO')
 GIT_REPO_DIR_NAME = GIT_REPO_URL.split('/')[-1].replace('.git','')
-GIT_REPO_SECRET = '1FvpX3tzv7K5kUK3hz76rvDEix25YFPV'
+GIT_REPO_SECRET = os.environ.get('POSTS_GIT_REPO_SECRET')
 
 # Server Config
 PORT=5000
