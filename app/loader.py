@@ -18,8 +18,8 @@ class DataStore(object):
 		self.data = {}
 		self.metadata = {}
 		check_repo_exist()
-		self.load_metadata()
 		self.load_files()
+		self.load_metadata()
 	"""
 	Load files from data_dir with markdown format and return a map with key as filename and value as contents
 	"""
