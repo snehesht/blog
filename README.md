@@ -17,7 +17,7 @@ This project uses git to track all changes made on an article, as all the writin
 
 Usage
 -----
-	docker pull snehesht/blogengine:latest
+	docker pull snehesh/blogengine:latest
 ```
 	Environmental Variables
 		POSTS_GIT_REPO
