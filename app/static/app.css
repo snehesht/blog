@@ -1115,13 +1115,13 @@ img {
   position: relative;
   margin: 0 auto;
   font-size: 20px;
-  line-height: 32px; }
+  line-height: 36px; }
   #index-page #dyn-block {
     font-size: 20px; }
   #index-page #dyn-cursor-line {
     font-weight: 400;
     position: relative;
-    font-size: 32px; }
+    font-size: 36px; }
   #index-page #dyn-cursor {
     font-weight: 400;
     font-size: 24px;
@@ -1129,6 +1129,14 @@ img {
     top: 22px;
     left: -16px;
     color: red; }
+
+#aboutme {
+  padding-top: 80px;
+  font-family: "Hack", "monospace";
+  font-size: 20px;
+  line-height: 36px; }
+  #aboutme a {
+    text-align: center; }
 
 @media screen and (max-width: 768px) {
   #index-page {

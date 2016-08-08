@@ -184,14 +184,14 @@ img {
 	position:relative;
 	margin: 0 auto;
 	font-size: $sub_header_font_size;
-	line-height: 32px;
+	line-height: 36px;
 	#dyn-block {
 		font-size: $sub_header_font_size;
 	}
 	#dyn-cursor-line {
 	font-weight: 400;
 	position: relative;
-	font-size: 32px;
+	font-size: 36px;
 	}
 	#dyn-cursor {
 
@@ -201,6 +201,25 @@ img {
 	top: 22px;
 	left: -16px;
 	color: red;
+	}
+}
+
+// About me Page
+#aboutme {
+	padding-top: 80px;
+	font-family: $primary_font;
+	font-size: $sub_header_font_size;
+	line-height: 36px;
+
+	#aboutme-firstline {
+		// float: left;
+		// padding: 20px 120px;
+	}
+	#aboutme-secondline {
+
+	}
+	a {
+		text-align: center;
 	}
 }
 

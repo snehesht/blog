@@ -50,7 +50,8 @@ def resume():
 """
 @app.route('/projects')
 def projects_page():
-	return render_template('projects.html')
+	return redirect('https://github.com/snehesht')
+	# return render_template('projects.html')
 
 
 
