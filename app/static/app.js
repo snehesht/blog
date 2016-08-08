@@ -85,7 +85,7 @@ menubar.onclick = function () {
 
 // Index Page Dynamic Content Injection
 function injector() {
-	var dynblk_msg = "Hello there, I'm Snehesh Thalapaneni and this is my blog.";
+	var dynblk_msg = "Hello, I'm Snehesh Thalapaneni, full stack developer based in NYC. I love Python and React, I build things in my free time.";
 	setInterval(function(){
 		var dynblk = document.getElementById('dyn-block');
 		if (dynblk.innerHTML.length != dynblk_msg.length) {
