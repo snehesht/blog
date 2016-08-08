@@ -4,9 +4,9 @@ Minimalist Blog Engine
 
 
 _TL;DR_
-
 Publish a blog post with ` git push `
-![](http://i.imgur.com/gtfvdkM.gif)
+
+![](http://i.imgur.com/7zXwyTS.gif)
 
 
 Usage
@@ -21,7 +21,7 @@ Usage
 ```
 		docker run -d \
 		-e POSTS_GIT_REPO="https://github.com/snehesht/BLOGPOSTS_REPO" \
-		-e POSTS_GIT_REPO_SECRET="5qs04EbWpxQ2WYFpS6apFqhWDubGqC19" \
+		-e POSTS_GIT_REPO_SECRET="SECRET HERE" \
 		-p 5000:5000 \
 		--name be1 snehesh/blogengine:latest
 ```
