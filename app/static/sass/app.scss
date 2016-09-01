@@ -74,8 +74,9 @@ img {
 		a {
 			font-size: $body_font_size;
 			padding: 5px 10px;
-			border: 1px solid $primary_color;
-			border-radius: 4px;
+			border: 1px solid rgba(0,0,255,0.4);
+			background-color: rgba(0,0,255,0.02);
+			border-radius: 2px;
 			text-decoration: none;
 		}
 	}
@@ -199,7 +200,7 @@ img {
 	font-size: 24px;
 	position: relative;
 	top: 22px;
-	left: -16px;
+	left: -18px;
 	color: red;
 	}
 }
