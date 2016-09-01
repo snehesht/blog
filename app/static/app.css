@@ -1036,7 +1036,7 @@ img {
       font-size: 16px;
       padding: 5px 10px;
       border: 1px solid rgba(0, 0, 255, 0.4);
-      background-color: rgba(0, 0, 255, 0.02);
+      background-color: rgba(0, 0, 255, 0.04);
       border-radius: 2px;
       text-decoration: none; }
   #navbar #minions {
@@ -1134,8 +1134,8 @@ img {
 #aboutme {
   padding-top: 80px;
   font-family: "Hack", "monospace";
-  font-size: 20px;
-  line-height: 36px; }
+  font-size: 16px;
+  line-height: 1.5em; }
   #aboutme a {
     text-align: center; }
 

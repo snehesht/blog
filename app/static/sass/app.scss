@@ -75,7 +75,7 @@ img {
 			font-size: $body_font_size;
 			padding: 5px 10px;
 			border: 1px solid rgba(0,0,255,0.4);
-			background-color: rgba(0,0,255,0.02);
+			background-color: rgba(0,0,255,0.04);
 			border-radius: 2px;
 			text-decoration: none;
 		}
@@ -209,8 +209,8 @@ img {
 #aboutme {
 	padding-top: 80px;
 	font-family: $primary_font;
-	font-size: $sub_header_font_size;
-	line-height: 36px;
+	font-size: $body_font_size;
+	line-height: 1.5em;
 
 	#aboutme-firstline {
 		// float: left;
