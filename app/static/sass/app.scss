@@ -58,9 +58,9 @@ img {
 	padding-top: 10px;
 	#logo {
 		a {
-			padding: 5px 5px;
-			border: 1px solid $primary_color;
-			background-color: $primary_color;
+			padding: 5px 10px;
+			border: 1px solid rgba(0,0,255,0.1); 
+			background-color: rgba(0,0,255,0.6);
 			color: $white;
 			border-radius: 2px;
 			font-size: $header_font_size;

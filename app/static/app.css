@@ -1023,9 +1023,9 @@ img {
   font-size: 16px;
   padding-top: 10px; }
   #navbar #logo a {
-    padding: 5px 5px;
-    border: 1px solid #3322FF;
-    background-color: #3322FF;
+    padding: 5px 10px;
+    border: 1px solid rgba(0, 0, 255, 0.1);
+    background-color: rgba(0, 0, 255, 0.6);
     color: #FFFFFF;
     border-radius: 2px;
     font-size: 24px;
