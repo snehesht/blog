@@ -9,9 +9,9 @@ $primary_color: #3322FF;
 $white: #FFFFFF;
 
 // Typography
-$default_font_size: 16px;
+$default_font_size: 14px;
 $body_font_size: $default_font_size;
-$sub_header_font_size: 20px;
+$sub_header_font_size: 18px;
 $header_font_size: 24px;
 $metadata_font_size: 14px;
 
@@ -131,12 +131,20 @@ img {
 	}
 }
 
+pre {
+    overflow: auto;    
+	background-color: rgba(200,200,255,0.2);
+    border: 1px solid rgba(200,200,255,0.5);
+    padding: 10px;
+    text-align: justify;
+    text-justify: inter-word; 
+}
 
-.code {
+code {
 	background-color: rgba(200,200,255,0.5);
 	padding: 2px 5px;
 	font-family: monospace;
-	font-size: body_font_size;
+	font-size: $body_font_size;
 	border-radius:2px;
 }
 
