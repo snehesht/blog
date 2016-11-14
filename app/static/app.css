@@ -14,7 +14,6 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 @import url(https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
