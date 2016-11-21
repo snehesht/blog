@@ -41,7 +41,7 @@ def index():
 @app.route('/resume')
 def resume():
 	# return render_template('resume.html')
-	return redirect('https://www.dropbox.com/s/1fm7p9kr8mjbz8m/resume.pdf?dl=0')
+	return redirect('https://www.dropbox.com/s/hrliztig0dzs84n/Resume.pdf?dl=0')
 
 
 
