@@ -15,6 +15,11 @@ My motivation to build this blog engine was based on 3 factors.
 
 This project uses git to track all changes made on an article, as all the writing is done in markdown format, I can write posts on multiple devices ( CLI (Termux) on Android, VIM or Sublime on Arch ) switching back and forth. Finally I can publish those writings by adding metadata to the metadata.json file. In other words the posts are visible on blog only when they are enabled in `metadata.json`.
 
+
+![](https://i.imgur.com/SenXIET.png)
+
+
+
 ToDo
 ----
 - Multiprocess support for DataStore()
