@@ -5,7 +5,7 @@
 		<a href="{{ url_for('blog_post',url_slug=metadata.url) }}">{{ metadata.title }}</a>
 	</div>
 	<div class="col-xs-12 single-post-metadata">
-		<span>By <a href="/about">{{ metadata.author }}</a> on {{ metadata.date }}</span> <span>Tags: {% for tag in metadata.tags %} <span><a href="#">{{ tag }}</a></span> {% endfor %}</span>
+		<span>By <a href="/about">{{ metadata.author }}</a> on {{ metadata.date }}</span> <span>Tags: {% for tag in metadata.tags %} <span><a href="#">{{ tag }}</a> </span>{% endfor %}</span>
 	</div>
 </div>
 <div class="single-post-content">

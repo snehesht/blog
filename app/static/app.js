@@ -1,8 +1,8 @@
 "use strict";
 // ╳
 var menubar = document.getElementById('boss-btn');
-var contracted_menu = "☰";
-var contracted_menu_mobile = "☰";
+var contracted_menu = "✕";
+var contracted_menu_mobile = "✕";
 var expanded_menu_mobile = "☰";
 var expanded_menu = "☰";
 var full_menu = `
@@ -21,11 +21,11 @@ function expand_menu(elem) {
 	if (window.innerWidth < 768){
 		var menu_elem = document.getElementById('postmenu');
 		menu_elem.innerHTML = full_menu;
-		elem.innerHTML = expanded_menu_mobile ;
+		//elem.innerHTML = expanded_menu_mobile ;
 	} else {
 		var menu_elem = document.getElementById('premenu');
 		menu_elem.innerHTML = full_menu;
-		elem.innerHTML = expanded_menu ;
+		//elem.innerHTML = expanded_menu ;
 	}
 };
 
@@ -36,9 +36,9 @@ function contract_menu(elem) {
 	var menu_elem = document.getElementById('premenu');
 	menu_elem.innerHTML = "";
 	if (window.innerWidth < 768){
-		elem.innerHTML = contracted_menu_mobile;
+		//elem.innerHTML = contracted_menu_mobile;
 	} else {
-		elem.innerHTML = contracted_menu;
+		//elem.innerHTML = contracted_menu;
 	}
 };
 
@@ -80,6 +80,7 @@ menubar.onclick = function () {
 						"change": 0
 					};
 	};
+    this.classList.toggle( "active" );
     toggle_menu(this);
 };
 

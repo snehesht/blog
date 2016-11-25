@@ -1,7 +1,6 @@
 @import "bootstrap";
-@import url(https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css);
-//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import "hamburger";
 // Background
 $base_background_color: #FCFCFC;
 // Colors
@@ -9,23 +8,25 @@ $primary_color: #3322FF;
 $white: #FFFFFF;
 
 // Typography
-$default_font_size: 14px;
+$default_font_size: 16px;
 $body_font_size: $default_font_size;
-$sub_header_font_size: 18px;
+$sub_header_font_size: 20px;
 $header_font_size: 24px;
 $metadata_font_size: 14px;
+$code_font_size: 14px;
 
-
-$primary_font: "Hack","monospace";
+$primary_font: "Open Sans","monospace";
 $seconday_font: $primary_font;
+$body_font:  "Open Sans","monospacee";
+$code_font: monospace;
 
 body {
-	font-family: $primary_font;
+	font-family: $body_font;
 	font-size: $default_font_size;
 	padding-top: 20px;
 	color: #1f1f1f;
 	background-color: $base_background_color;
-	line-height: 24px;
+	line-height: 1.7em;
 }
 
 a {
@@ -55,7 +56,8 @@ img {
 
 #navbar {
 	font-size: $body_font_size;
-	padding-top: 10px;
+	font-family: $primary_font;
+    padding-top: 10px;
 	#logo {
 		a {
 			padding: 5px 10px;
@@ -82,7 +84,8 @@ img {
 	}
 	#minions {
 		float: right;
-		ul {
+		font-family: $code_font;
+        ul {
 			margin: 0px;
 			padding: 0px;
 			li {
@@ -138,15 +141,24 @@ pre {
     padding: 10px;
     text-align: justify;
     text-justify: inter-word; 
+
+    code { 
+        font-family: $code_font; 
+        font-size: $code_font_size;
+        border-radius:2px;
+    }
 }
 
-code {
-	background-color: rgba(200,200,255,0.5);
-	padding: 2px 5px;
-	font-family: monospace;
-	font-size: $body_font_size;
-	border-radius:2px;
+p {
+    code {
+        background-color: rgba(200,200,255,0.5);
+        padding: 2px 5px;
+        font-family: $code_font;
+        font-size: $code_font_size;
+        border-radius:2px;
+    }
 }
+
 
 .post-box {
 	.post-title {
@@ -155,14 +167,17 @@ code {
 		font-family: $primary_font;
 	}
 	.post-description {
-	padding: 5px 15px;
-	line-height: 32px;
+        padding: 5px 15px;
+        line-height: 1.7em;
 	}
 	.post-metadata {
 		font-size: $metadata_font_size;
 		font-family: $primary_font;
 		padding: 0px 0px 0px 15px;
-	}
+		span {
+			padding: 0px 5px 0px 0px;
+		}
+    }
 }
 
 
@@ -177,14 +192,14 @@ code {
 		font-family: $primary_font;
 		padding: 5px 0px 0px 15px;
 		span {
-			padding: 0px 20px 0px 0px;
+			padding: 0px 5px 0px 0px;
 		}
 
 	}
 	.single-post-content {
 		font-size: $default_font_size;
-		font-family: $primary_font;
-		line-height: 1.8em;
+		font-family: $body_font;
+		line-height: 1.7em;
 	}
 }
 
@@ -193,23 +208,25 @@ code {
 	position:relative;
 	margin: 0 auto;
 	font-size: $sub_header_font_size;
-	line-height: 36px;
+	font-family: $code_font;
+    line-height: 36px;
 	#dyn-block {
 		font-size: $sub_header_font_size;
 	}
 	#dyn-cursor-line {
-	font-weight: 400;
-	position: relative;
-	font-size: 36px;
+        font-weight: 700;
+        position: relative;
+        font-size: 24px;
+        //left: -16px;
+        //top:5px;
 	}
 	#dyn-cursor {
-
-	font-weight: 400;
-	font-size: 24px;
-	position: relative;
-	top: 22px;
-	left: -18px;
-	color: red;
+        font-weight: 400;
+        font-size: 24px;
+        position: relative;
+        top: 24px;
+        left: -14px;
+        color: #FF0000;
 	}
 }
 
