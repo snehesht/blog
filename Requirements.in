@@ -1,7 +1,12 @@
+cffi==1.9.1
 click==6.6
 Flask==0.11.1
 itsdangerous==0.24
 Jinja2==2.8
 Markdown==2.6.6
 MarkupSafe==0.23
+misaka==2.0.0
+mistune==0.7.3
+Pigments==1.6
+pycparser==2.17
 Werkzeug==0.11.10

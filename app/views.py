@@ -1,6 +1,7 @@
 from app import app
 from flask import  url_for, redirect, request, render_template, Markup
-import markdown
+#import markdown
+import misaka
 from loader import DataStore
 from config import *
 from helper import hash_check
@@ -41,7 +42,7 @@ def index():
 @app.route('/resume')
 def resume():
 	# return render_template('resume.html')
-	return redirect('https://www.dropbox.com/s/1fm7p9kr8mjbz8m/resume.pdf?dl=0')
+	return redirect('https://www.dropbox.com/s/hrliztig0dzs84n/Resume.pdf?dl=0')
 
 
 
@@ -89,5 +90,6 @@ def blog_post(url_slug):
 		return redirect(url_for('index_page'))
 	finally:
 		raw_content = data[bp['file']]
-		processed_content = Markup(markdown.markdown(raw_content))
+		#processed_content = Markup(markdown.markdown(raw_content))
+		processed_content = Markup(misaka.html(raw_content))
 		return render_template('blog_post.html', content=processed_content,metadata=bp)

@@ -13,7 +13,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url(https://cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -843,13 +843,53 @@ hr {
 .affix {
   position: fixed; }
 
+#boss-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%; }
+
+#boss-btn {
+  cursor: pointer;
+  padding: 10px 35px 16px 0px; }
+
+#boss-btn span, #boss-btn span:before, #boss-btn span:after {
+  cursor: pointer;
+  border-radius: 2px;
+  height: 5px;
+  width: 30px;
+  background: rgba(0, 0, 255, 0.6);
+  position: absolute;
+  display: block;
+  content: ''; }
+
+#boss-btn span:before {
+  top: -10px; }
+
+#boss-btn span:after {
+  bottom: -10px; }
+
+#boss-btn span, #boss-btn span:before, #boss-btn span:after {
+  transition: all 500ms ease-in-out; }
+
+#boss-btn.active span {
+  background-color: transparent; }
+
+#boss-btn.active span:before, #boss-btn.active span:after {
+  top: 0; }
+
+#boss-btn.active span:before {
+  transform: rotate(45deg); }
+
+#boss-btn.active span:after {
+  transform: rotate(-45deg); }
+
 body {
-  font-family: "Hack", "monospace";
-  font-size: 14px;
+  font-family: "Open Sans", "monospacee";
+  font-size: 16px;
   padding-top: 20px;
   color: #1f1f1f;
   background-color: #FCFCFC;
-  line-height: 24px; }
+  line-height: 1.7em; }
 
 a {
   position: relative;
@@ -859,11 +899,11 @@ a {
 
 h1 {
   font-size: 24px;
-  font-family: "Hack", "monospace"; }
+  font-family: "Open Sans", "monospace"; }
 
 h2 {
-  font-size: 18px;
-  font-family: "Hack", "monospace"; }
+  font-size: 20px;
+  font-family: "Open Sans", "monospace"; }
 
 .test-cols {
   border: 1px #3322FF solid; }
@@ -872,7 +912,8 @@ img {
   align-self: center; }
 
 #navbar {
-  font-size: 14px;
+  font-size: 16px;
+  font-family: "Open Sans", "monospace";
   padding-top: 10px; }
   #navbar #logo a {
     padding: 5px 10px;
@@ -880,19 +921,20 @@ img {
     background-color: rgba(0, 0, 255, 0.6);
     color: #FFFFFF;
     border-radius: 2px;
-    font-size: 18px;
+    font-size: 20px;
     text-decoration: none; }
   #navbar #boss {
     float: right; }
     #navbar #boss a {
-      font-size: 14px;
+      font-size: 16px;
       padding: 5px 10px;
       border: 1px solid rgba(0, 0, 255, 0.4);
       background-color: rgba(0, 0, 255, 0.04);
       border-radius: 2px;
       text-decoration: none; }
   #navbar #minions {
-    float: right; }
+    float: right;
+    font-family: monospace; }
     #navbar #minions ul {
       margin: 0px;
       padding: 0px; }
@@ -937,8 +979,12 @@ pre {
   padding: 10px;
   text-align: justify;
   text-justify: inter-word; }
+  pre code {
+    font-family: monospace;
+    font-size: 14px;
+    border-radius: 2px; }
 
-code {
+p code {
   background-color: rgba(200, 200, 255, 0.5);
   padding: 2px 5px;
   font-family: monospace;
@@ -948,58 +994,61 @@ code {
 .post-box .post-title {
   padding-top: 50px;
   font-size: 24px;
-  font-family: "Hack", "monospace"; }
+  font-family: "Open Sans", "monospace"; }
 
 .post-box .post-description {
   padding: 5px 15px;
-  line-height: 32px; }
+  line-height: 1.7em; }
 
 .post-box .post-metadata {
   font-size: 14px;
-  font-family: "Hack", "monospace";
+  font-family: "Open Sans", "monospace";
   padding: 0px 0px 0px 15px; }
+  .post-box .post-metadata span {
+    padding: 0px 5px 0px 0px; }
 
 .single-page .single-post-title {
   padding-top: 50px;
   font-size: 24px;
-  font-family: "Hack", "monospace"; }
+  font-family: "Open Sans", "monospace"; }
 
 .single-page .single-post-metadata {
   font-size: 14px;
-  font-family: "Hack", "monospace";
+  font-family: "Open Sans", "monospace";
   padding: 5px 0px 0px 15px; }
   .single-page .single-post-metadata span {
-    padding: 0px 20px 0px 0px; }
+    padding: 0px 5px 0px 0px; }
 
 .single-page .single-post-content {
-  font-size: 14px;
-  font-family: "Hack", "monospace";
-  line-height: 1.8em; }
+  font-size: 16px;
+  font-family: "Open Sans", "monospacee";
+  line-height: 1.7em; }
 
 #index-page {
   position: relative;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 20px;
+  font-family: monospace;
   line-height: 36px; }
   #index-page #dyn-block {
-    font-size: 18px; }
+    font-size: 20px; }
   #index-page #dyn-cursor-line {
-    font-weight: 400;
+    font-weight: 700;
     position: relative;
-    font-size: 36px; }
+    font-size: 24px; }
   #index-page #dyn-cursor {
     font-weight: 400;
     font-size: 24px;
     position: relative;
-    top: 22px;
-    left: -18px;
-    color: red; }
+    top: 24px;
+    left: -14px;
+    color: #FF0000; }
 
 #aboutme {
   padding-top: 80px;
-  font-family: "Hack", "monospace";
-  font-size: 14px;
-  line-height: 1.5em; }
+  font-family: "Open Sans", "monospace";
+  font-size: 20px;
+  line-height: 1.7em; }
   #aboutme a {
     text-align: center; }
 

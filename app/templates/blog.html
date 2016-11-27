@@ -16,7 +16,7 @@
 				<span>Tags: {% for tag in post.tags %} <span><a href="#">{{ tag }}</a></span> {% endfor %}</span>
 			</div> -->
 			<div class="col-xs-12 post-metadata">
-				<span>By <a href="/about">{{ post.author }}</a> on {{ post.date }}</span> <span>Tags: {% for tag in post.tags %} <span><a href="">{{ tag }},</a></span> {% endfor %}</span>
+				<span>By <a href="/about">{{ post.author }}</a> on {{ post.date }}</span> <span>Tags: {% for tag in post.tags %} <span><a href="">{{ tag }}</a> </span> {% endfor %}</span>
 			</div>
 		</div>
 		{% endfor %}
