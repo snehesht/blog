@@ -5,17 +5,16 @@ var contracted_menu = "✕";
 var contracted_menu_mobile = "✕";
 var expanded_menu_mobile = "☰";
 var expanded_menu = "☰";
-var full_menu = `
-<div id="minions" class="anime">
-	<ul>
-		<li><a href="/">/root</a></li>
-		<li><a href="/blog">/blog</a></li>
-		<li><a href="/projects">/projects</a></li>
-		<li><a href="/resume">/resume</a></li>
-		<li><a href="/about">/about</a></li>
-	</ul>
-</div>
-`;
+var full_menu = " \
+<div id='minions' class='anime'> \
+	<ul> \
+		<li><a href='/'>/root</a></li> \
+		<li><a href='/blog'>/blog</a></li> \
+		<li><a href='/projects'>/projects</a></li> \
+		<li><a href='/resume'>/resume</a></li> \
+		<li><a href='/about'>/about</a></li> \
+	</ul> \
+</div>";
 
 function expand_menu(elem) {
 	if (window.innerWidth < 768){
@@ -86,7 +85,7 @@ menubar.onclick = function () {
 
 // Index Page Dynamic Content Injection
 function injector() {
-	var dynblk_msg = "Hello, I'm Snehesh Thalapaneni, a full stack developer living in New York City.";
+	var dynblk_msg = "Hello, My name is Snehesh Thalapaneni, I'm a software developer living in New York City. This is my personal website.";
 	setInterval(function(){
 		var dynblk = document.getElementById('dyn-block');
 		if (dynblk.innerHTML.length != dynblk_msg.length) {

@@ -2,7 +2,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Snehesh Thalapaneni</title>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='app.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='app.min.css') }}">
 	</head>
 	<body>
 
@@ -30,6 +30,6 @@
 			{% block content %}{% endblock %}
 		</div>
 		</div>
-	<script src="{{ url_for('static',filename='app.js') }}" charset="utf-8"></script>
+	<script src="{{ url_for('static',filename='app.min.js') }}" charset="utf-8"></script>
 	</body>
 </html>

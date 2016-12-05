@@ -61,7 +61,7 @@ img {
 	#logo {
 		a {
 			padding: 5px 10px;
-			border: 1px solid rgba(0,0,255,0.1); 
+			border: 1px solid rgba(0,0,255,0.1);
 			background-color: rgba(0,0,255,0.6);
 			color: $white;
 			border-radius: 2px;
@@ -135,15 +135,15 @@ img {
 }
 
 pre {
-    overflow: auto;    
+    overflow: auto;
 	background-color: rgba(200,200,255,0.2);
     border: 1px solid rgba(200,200,255,0.5);
     padding: 10px;
     text-align: justify;
-    text-justify: inter-word; 
+    text-justify: inter-word;
 
-    code { 
-        font-family: $code_font; 
+    code {
+        font-family: $code_font;
         font-size: $code_font_size;
         border-radius:2px;
     }
@@ -232,7 +232,7 @@ p {
 
 // About me Page
 #aboutme {
-	padding-top: 80px;
+	padding-top: 30px;
 	font-family: $primary_font;
 	font-size: $sub_header_font_size;
 	line-height: 1.7em;
