@@ -1,24 +1,23 @@
 {% extends "base.html" %}
-{% block content %}
-	<div class="row">
-		{% for post in content %}
-		<div class="post-box">
-			<div class="col-xs-12 post-title ">
-				<a href="{{ url_for('blog_post',url_slug=post.url) }}">{{ post.title }}</a>
-			</div>
-			<div class="col-xs-12 post-description">
-				<span>{{ post.description }}</span>
-			</div>
-<!-- 			<div class="col-xs-12 col-sm-4 post-metadata">
-				<span>By <a href="/about">{{ post.author }}</a> on {{ post.date }}</span>
-			</div>
-			<div class="col-xs-12 col-sm-8 post-metadata">
-				<span>Tags: {% for tag in post.tags %} <span><a href="#">{{ tag }}</a></span> {% endfor %}</span>
-			</div> -->
-			<div class="col-xs-12 post-metadata">
-				<span>By <a href="/about">{{ post.author }}</a> on {{ post.date }}</span> <span>Tags: {% for tag in post.tags %} <span><a href="">{{ tag }}</a> </span> {% endfor %}</span>
-			</div>
-		</div>
-		{% endfor %}
-	</div>
+{% block bodycontent %}
+<div class="blogcontainer">
+
+    {% for post in content|reverse %}
+    <div class="title-url">
+        <a href=" {{ url_for('blog_post',url_slug=post.url) }}">{{ post.title }}</a>
+    </div>
+    <div class="metadata">
+        <ol>
+            <li>By <a href=" {{ url_for('about_page') }}">{{ post.author }}</a>&nbsp;</li>
+            <li>on {{ post.date }},&nbsp; </li>
+            <li>Filed under {% for tag in post.tags %} <a href="">{{ tag }}&nbsp;</a>{% endfor %}</li>
+        </ol>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}
+{% block footer %}
+
+
 {% endblock %}

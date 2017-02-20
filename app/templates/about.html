@@ -1,52 +1,98 @@
 {% extends "base.html" %}
-{% block content %}
-<div id="aboutme">
-	<div id="aboutme-intro">
-	<p>
-	I'm Snehesh Thalapaneni, a full stack developer living in New York City. While I was doing my undergrad in Electronics, I developed keen interest in computers and I started to teach my self C and then Python. After my bachelors I moved to US and got my master's degree in Computer Engineering. Fast forward, I'm living in New York and working as a generalistic software developer.
-	</p>
-	<p>
-	My interests align with product development, system architecture, IoT, general machine learning, infosec and online privacy. I spend most of my free time turning my ideas into side projects. Apart from the technical aspects of software development, I'm interested in product management, User Interfaces and Robotics.
-	</p>
-	<p>
-	One of most interesting projects I worked on is for my bachelor's thesis, Along with Deepak Muppiri I built a road scanner to map irregularities on indian roads such as speed breakers, path holes, dangerous curves etc. using an array of sensors and then map the data onto Google Maps with ~ 1 meter resolution. Thus the data can be integrated into the navigation software to alert drivers about possible dangers up ahead and this data can also be used by the Govt. to prioritize fixing the roads.
-	</p>
-	<p>
-	Check out my github profile for my side projects, and feel free to use then in anyway you see fit. If you wish to connect, drop an email at <a href="mailto:mail@snehesh.me" target="_blank"> mail@snehesh.me </a> , I'll reply back.</p>
-	</div>
-	<div id="aboutme-icons">
-	<br>
-		<div class="row">
-			<div class="col-xs-6 col-sm-2">
-				<div id="aboutme-firstline">
-					<a href="https://github.com/snehesht" target="_blank">Github</a>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-2">
-				<div id="aboutme-firstline">
-					<a href="https://keybase.io/snehesh" target="_blank">Keybase</a>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-3">
-				<div id="aboutme-firstline">
-					<a href="https://news.ycombinator.com/user?id=snehesht" target="_blank">Hacker News</a>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-2">
-				<div id="aboutme-secondline">
-					<a href="https://twitter.com/snehesht" target="_blank">Twitter</a>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-2">
-				<div id="aboutme-secondline">
-					<a href="mailto:mail@snehesh.me" target="_blank">Email</a>
-				</div>
-			</div>
-		</div>
-		<br>
-	</div>
+
+{% block bodycontent %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="about-left">
+                <img id="about-image" src="{{ url_for('static',filename='images/snehesh_sq.jpg') }}" alt="Snehesh Thalapaneni" width='300'>
+                <div class="row" style="margin: 0 auto;">
+                    <div class="col-xs-12" id="about-name">Snehesh Thalapaneni</div>
+                    <div class="col-xs-6 col-sm-4 col-md-12" id="about-twitter">
+                        <a href="https://twitter.com/snehesht" target="_blank">
+                            <img src="{{ url_for('static', filename='images/twitter.png') }}" alt="">
+                            <span>snehesht</span>
+                        </a>
+
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-12" id="about-github">
+                        <a href="https://github.com/snehesht" target="_blank">
+                            <img src="{{ url_for('static', filename='images/github.png') }}" alt="">
+                            <span>snehesht</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-6 col-sm-4 col-md-12" id="about-linkedin">
+                        <a href="https://www.linkedin.com/in/snehesht" target="_blank">
+                            <img src="{{ url_for('static', filename='images/linkedin.png') }}" alt="">
+                            <span>snehesht</span>
+                        </a>
+                    </div>
+
+
+                    <div class="col-xs-6 col-sm-4 col-md-12" id="about-keybase">
+                        <a href="https://keybase.io/snehesh" target="_blank">
+                            <img src="{{ url_for('static', filename='images/keybase.png') }}" alt="">
+                            <span>snehesh</span>
+                        </a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-8 col-md-12" id="about-email">
+                        <img src="{{ url_for('static', filename='images/email.png') }}" alt="">
+                        <a href="mailto:mail@snehesh.me" target="_blank">
+                            <span>mail@snehesh.me</span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div class="about-right">
+                {{ content|safe }}
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- <div class="container"> -->
+<!--     <div class="row"> -->
+<!--         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4"> -->
+<!--             <div class="name">Snehesh Thalapaneni</div> -->
+<!--         </div> -->
+<!--         <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8"> -->
+<!--             <div class="social"> -->
+<!--                 <div id="twitter" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 el"> -->
+<!--                     <a href="https://twitter.com/snehesht" target="_blank"> -->
+<!--                         <img src="{{ url_for('static', filename='images/twitter.png') }}" alt=""> -->
+<!--                     </a> -->
+<!--                 </div> -->
+<!--                 <div id="github" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 el"> -->
+<!--                     <a href="https://github.com/snehesht" target="_blank"> -->
+<!--                         <img src="{{ url_for('static', filename='images/github.png') }}" alt=""> -->
+<!--                     </a> -->
+<!--                 </div> -->
+<!--                 <div id="linkedin" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 el"> -->
+<!--                     <a href="https://www.linkedin.com/in/snehesht" target="_blank"> -->
+<!--                         <img src="{{ url_for('static', filename='images/linkedin.png') }}" alt=""> -->
+<!--                     </a> -->
+<!--                 </div> -->
+<!--                 <div id="keybase" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 el"> -->
+<!--                     <a href="https://keybase.io/snehesh" target="_blank"> -->
+<!--                         <img src="{{ url_for('static', filename='images/keybase.png') }}" alt=""> -->
+<!--                     </a> -->
+<!--                 </div> -->
+<!--                 <div id="email" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 el"> -->
+<!--                     <a href="mailto:mail@snehesh.me" target="_blank"> -->
+<!--                         <img src="{{ url_for('static', filename='images/email.png') }}" alt=""> -->
+<!--                     </a> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--         <div class="about col-xs-12 col-sm-12 col-md-12 col-lg-12"> -->
+<!--             {{ content|safe }} -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </div> -->
+
 {% endblock %}
-
-
-
