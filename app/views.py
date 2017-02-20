@@ -35,7 +35,7 @@ def reload_data():
 @app.route('/')
 def index():
     #return render_template('index.html')
-    return redirect('/blog/')
+    return redirect(url_for('blog_index_page'))
 
 
 # Redirects to Resume.pdf hosted on Dropbox
