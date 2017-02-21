@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<itemset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   {%- for item in sitemap %}
-    <item>
+    <url>
         <loc>{{ item.url }}</loc>
         {%- if item.lastmod %}
         <lastmod>{{ item.lastmod }}</lastmod>
@@ -12,6 +12,6 @@
         {%- if item.priority %}
         <priority>{{ item.priority }}</priority>
         {%- endif %}
-    </item>
+    </url>
   {%- endfor %}
-</itemset>
+</urlset>
