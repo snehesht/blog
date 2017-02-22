@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+SITEMAP: https://snehesh.me/sitemap.xml
