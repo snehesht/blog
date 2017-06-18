@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-coffee": "^2.3.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.0.0",
+    "gulp-rimraf": "^0.2.1",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglifyjs": "^0.6.2"
+  }
+}

@@ -2,6 +2,7 @@
 // Nav Button Toggle
 //
 
+
 // Toggle the Navigation Menubar based on previous state
 function toggleNavbar(){
     const screenWidth = screen.width;

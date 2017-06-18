@@ -31,7 +31,6 @@ $azure_white: #D8E2FF;
 $grey : #888888;
 
 
-
 /*
     Logo
 */
@@ -50,7 +49,7 @@ body {
 
     // Desktop Screens only
     @media screen and (min-width: 1200px) {
-        width: 1200px;
+        width: 1024px;
 
     }
 
@@ -337,7 +336,7 @@ body {
     }
 
     .content {
-        width: 90%;
+        width: 98%;
         text-align: justify;
         text-justify: inter-word;
         margin-left: 10px;

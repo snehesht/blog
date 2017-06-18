@@ -6,6 +6,7 @@ __pycache__
 .sass-cache
 .map
 .gitignore
+node_modules/
 
 env/
 blogposts
