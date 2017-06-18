@@ -4,20 +4,27 @@
 {% endblock %}
 {% block bodycontent %}
 <div class="blogcontainer">
+    {% set current_year = content[-1]['year'] %}
 
-    {% for post in content|reverse %}
+    {% for post in content|sort(attribute='year')|reverse %}
+<!--     {% if current_year != post.year %}
+        {% set current_year = post.year %}
+        <div class="year">
+            <p>{{ post.year }}</p>
+        </div>
+    {% endif %} -->
+
     <div class="title-url">
         <a href=" {{ url_for('blog_post',url_slug=post.url) }}">{{ post.title }}</a>
     </div>
     <div class="metadata">
         <ol>
             <li>By <a href=" {{ url_for('about_page') }}">{{ post.author }}</a>&nbsp;</li>
-            <li>on {{ post.date }},&nbsp; </li>
+            <li>on {{ post.human_time }},&nbsp; </li>
             <li>Filed under {% for tag in post.tags %} <a href="">{{ tag }}&nbsp;</a>{% endfor %}</li>
         </ol>
     </div>
     {% endfor %}
-
 </div>
 {% endblock %}
 {% block footer %}

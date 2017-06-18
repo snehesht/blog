@@ -8,7 +8,6 @@ from helper import hash_check, md2html, gen_sitemap
 # Initilize Loading files from git repo
 DS = DataStore()
 
-
 # Pull the new commits and update the DataStore
 @app.route('/_reload', methods=['POST'])
 def reload_data():
@@ -17,6 +16,7 @@ def reload_data():
     and if it is, the data stored inside the git repo is pulled down and the
     DataStore is reloaded
     """
+    DS.reload()
     if request.headers.get('X-Hub-Signature', None) != None:
         gh_sha1 = request.headers.get('X-Hub-Signature')
         gh_payload = request.data

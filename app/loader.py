@@ -4,6 +4,7 @@ import json
 from config import *
 from gitmanager import *
 import time
+import arrow
 
 # Global Config
 DATA_DIR = GIT_REPO_DIR_NAME
@@ -44,7 +45,12 @@ class DataStore(object):
     def load_metadata(self):
         with open(DATA_DIR+"/"+"metadata.json","r") as fp:
             parsed_data = json.load(fp)
-        self.metadata = parsed_data
+        parsed_metadata = [];
+        for el in parsed_data:
+            el['human_time'] = arrow.get(el['date']).humanize()
+            el['year'] = arrow.get(el['date']).year
+            parsed_metadata.append(el)
+        self.metadata = parsed_metadata
 
 
    #Function to access data, this is usually called
