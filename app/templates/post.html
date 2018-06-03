@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+    {{ metadata.title }} -
+{% endblock %}
+
+{% block container %}
+<div class="container">
+    <div class="post-title">
+        <a href="">{{ metadata.title }}</a>
+    </div>
+    <div class="post-metadata">
+        <ol>
+            <li><span class="date">{{ metadata.date }}</span></li>
+            <li class="tags">Filed under {% for tag in metadata.tags %} <a href="">{{ tag }}</a>{% endfor %}</li>
+        </ol>
+    </div>
+    <div class="post-content">
+        {{ content|safe }}
+    </div>
+</div>
+{% endblock %}

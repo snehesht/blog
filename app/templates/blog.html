@@ -1,33 +1,30 @@
 {% extends "base.html" %}
 {% block title %}
-    Blog -
 {% endblock %}
-{% block bodycontent %}
-<div class="blogcontainer">
+
+{% block container %}
+<div class="container">
     {% set current_year = content[-1]['year'] %}
 
     {% for post in content|sort(attribute='year')|reverse %}
-<!--     {% if current_year != post.year %}
+    {% if current_year != post.year %}
         {% set current_year = post.year %}
-        <div class="year">
-            <p>{{ post.year }}</p>
+        <div class="post-year">
+            <span>{{ post.year }}</span>
         </div>
-    {% endif %} -->
+    {% endif %}
 
-    <div class="title-url">
-        <a href=" {{ url_for('blog_post',url_slug=post.url) }}">{{ post.title }}</a>
-    </div>
-    <div class="metadata">
-        <ol>
-            <li>By <a href=" {{ url_for('about_page') }}">{{ post.author }}</a>&nbsp;</li>
-            <li>on {{ post.human_time }},&nbsp; </li>
-            <li>Filed under {% for tag in post.tags %} <a href="">{{ tag }}&nbsp;</a>{% endfor %}</li>
-        </ol>
+    <div class="post">
+        <div class="post-title">
+            <a href=" {{ url_for('blog_post',url_slug=post.url) }}">{{ post.title }}</a>
+        </div>
+        <div class="post-metadata">
+            <ol>
+                <li><span class="date">{{ post.date }}</span></li>
+                <li class="tags">Filed under {% for tag in post.tags %} <a href="">{{ tag }}</a>{% endfor %}</li>
+            </ol>
+        </div>
     </div>
     {% endfor %}
 </div>
-{% endblock %}
-{% block footer %}
-
-
 {% endblock %}

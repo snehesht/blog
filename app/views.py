@@ -90,10 +90,11 @@ def blog_post(url_slug):
         raw_content = data[bp['file']]
         processed_content = Markup(md2html(raw_content))
         return render_template(
-            'blog_post.html', content=processed_content, metadata=bp)
+            'post.html', content=processed_content, metadata=bp)
     except Exception as e:
         # No blogpost found with the matching URL
         # redirects to /blog
+        print(e)
         return redirect(url_for('blog_index_page'))
 
 
@@ -107,6 +108,6 @@ def page_not_found(error):
 @app.route('/sitemap.xml')
 def sitemap():
     urlmap = gen_sitemap(DS.get_metadata())
-    resp = render_template('sitemap_template.xml',
+    resp = render_template('sitemap.xml',
         sitemap=urlmap)
     return Response(resp, status=200, mimetype='application/xml')

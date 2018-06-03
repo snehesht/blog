@@ -1,0 +1,74 @@
+@import "theme";
+
+// ----- Variables -----
+$btn-color-dark:           $primary;
+$btn-color:                $primary;
+$ripple-color:              rgba(0, 0, 0, 0.4) !default;
+
+$animation-duration:        0.3s !default;
+$animation-duration-large:  $animation-duration*1.5;
+$animation-duration-small:  $animation-duration/1.5;
+
+// ----- Mixins -----
+@mixin ripple-element() {
+  content: "";
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-bottom: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 30;
+  background: $ripple-color;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0); // Initial state, should hide the effect when not animating
+  visibility: hidden; // Hides element so it doesnt animate on page load
+}
+
+@mixin ripple-element-active() {
+  visibility: visible; // Shows element when it is focused
+}
+
+// ----- Animation -----
+@keyframes scale-up {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+// ----- Button ripple -----
+.button {
+  color: #fff;
+  text-align: center;
+  background-color: $primary;
+  border-radius: 4px;
+  transition: background-color;
+  transition-duration: $animation-duration;
+  overflow: hidden;
+
+  &:hover, &:focus {
+    color: #fff;
+    background-color: $primary;
+    border: 1px solid $primary;
+  }
+
+
+  &::before {
+    @include ripple-element();
+  }
+
+  &:not(:active)::before {
+    animation: scale-up $animation-duration ease-out 0s;
+  }
+
+  &:focus::before {
+    @include ripple-element-active();
+  }
+}
