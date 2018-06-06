@@ -1,4 +1,5 @@
 @import "normalize";
+@import "fonts";
 @import "theme";
 @import "button";
 
@@ -25,6 +26,8 @@ body {
     font-size: $regularSize;
     display: grid;
     min-height: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 // CSS Grid
@@ -76,6 +79,7 @@ body {
     padding: 0.5 * $spaceUnit $spaceUnit;
     margin: auto;
     grid-column: 1;
+    font-family: Lato, $fontFamily;
     font-size: $regularSize;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -102,6 +106,7 @@ body {
 
 .navButton {
     font-size: $smallSize;
+    font-family: Lato, $fontFamily;
     text-transform: uppercase;
     text-decoration: none;
     color: rgba($primary, 0.8);
@@ -109,7 +114,7 @@ body {
     border-radius: 2px;
     padding: 0.25*$spaceUnit 0.8*$spaceUnit;
     margin: 0 $spaceUnit;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
 
     &:hover, &:focus, &:active {
         border: 1px solid $primary;
@@ -139,6 +144,7 @@ body {
 
 .post-title {
     a {
+        font-family: Quicksand, $fontFamily;
         color: $primary;
         text-decoration: none;
         padding: 0.1*$spaceUnit 0.3*$spaceUnit;
@@ -173,6 +179,7 @@ body {
 
 .post-metadata {
     margin: 0.5*$spaceUnit 0* $spaceUnit;
+    font-family: Lato, $fontFamily;
     
     ol {
         list-style: none;

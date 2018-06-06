@@ -18,4 +18,3 @@ CMD ["chmod","+x","/www/start_server.sh"]
 EXPOSE 5000
 
 CMD ["sh","/www/start_server.sh"]
-
