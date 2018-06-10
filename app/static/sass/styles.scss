@@ -18,14 +18,18 @@ html {
     ::-webkit-scrollbar-thumb {
         background:rgba($primary, 0.3);
     }
+
+    a {
+        outline: 0;
+    }
 }
 
 body {
     color: $primary;
     font-family: $fontFamily;
-    font-size: $regularSize;
+    font-size:  $regularSize;
     display: grid;
-    min-height: 100%;
+    // min-height: 100%;
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -34,7 +38,7 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: max-content auto max-content;
+    grid-auto-rows: auto auto max-content;
 }
 .header {
     grid-row: 1;
@@ -202,14 +206,15 @@ body {
         a {
             color: $primary;
             text-decoration: none;
-            padding: 2px 5px;
+            padding: 3px 5px;
             font-size: 0.7 * $regularSize;
+            letter-spacing: 1.1px;
             color: $primary;
-            background-color: $lightGreen;
+            background-color: rgba($secondary, 0.15);
             text-transform: uppercase;
             margin: 0.15 * $spaceUnit;
             &:hover {
-                box-shadow: 0 8px 15px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
+                // box-shadow: 0 8px 15px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
                 animation: 200ms ease-in 0s;
             }
         }
@@ -249,9 +254,18 @@ body {
         }
     }
 
+    img {
+        display: flex;
+        margin: 0 auto;
+        padding: 2 * $spaceUnit 0;
+        &:after {
+            content: attr(alt);
+        }
+    }
+
     pre {
-        margin: $spaceUnit;
-        border: 1px solid rgba($primary, 0.5);
+        margin: $spaceUnit 0;
+        border: 1px solid rgba($primary, 0.1);
         border-radius: 2px;
         background-color: rgba($primary, 0.05);
         padding: $spaceUnit;
@@ -259,6 +273,7 @@ body {
         
         code {
             background-color: rgba($primary, 0);
+            padding: 0.1 * $spaceUnit 0 * $spaceUnit;
         }
     }
     
@@ -275,7 +290,7 @@ body {
             
             img {
                 border-radius: 2px;
-                // vertical-align: center;
+                vertical-align: center;
                 box-shadow: 0 18px 30px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
             }
         }
