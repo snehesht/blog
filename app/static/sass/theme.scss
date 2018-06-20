@@ -5,17 +5,21 @@ $black: #212121;
 $lightBlack: #424242;
 $blue: #3185FC;
 $white: #FFFFFF;
+$red: #F44336;
+$green: #90EE90;
 $lightGreen: #E8F3EC;
 
 $primary: $black;
 $secondary: $blue;
 
 // Fonts
-$fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$fontSize: calc(1em + 1vw); 
-$bigSize: 1.6rem;
+$baseFonts: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$headerFont: 'Quicksand', $baseFonts;
+$metaFont: 'Lato', $baseFonts;
+$baseSize: 1rem;
+$bigSize: 1.5rem;
 $regularSize:  1.2rem; 
-$smallSize: 0.9rem;
+$smallSize: 0.8rem;
 
 // Spacing
-$spaceUnit: 15px;
+$spaceUnit: 1rem;

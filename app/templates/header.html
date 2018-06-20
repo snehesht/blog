@@ -1,25 +1,26 @@
 {% block header %}
 <div class="header">
+    <div class="logo" onClick="window.location='/'">
+        Snehesh <br> Thalapaneni
+    </div>
     <div class="navbar">
-        <div class="logo" onClick="window.location='/'">
-            Snehesh <br> Thalapaneni
-        </div>
-        <div class="nav">
-            <ol>
-                <li>
-                    <a class="navButton" href="/blog"> blog </a>
-                </li>
-                <li>
-                    <a class="navButton" href="/about"> About Me </a>
-                </li>
-                <li>
-                    <a class="navButton" href="/resume"> Resume </a>
-                </li>
-                <li>
-                    <a class="navButton" href="https://github.com/snehesht"> Github </a>
-                </li>
-            </ol>
-        </div>
+        <ol>
+            <li>
+                <a class="navitem" href="/blog"> blog </a>
+            </li>
+            <li>
+                    <a class="navitem" href="/projects"> Projects </a>
+            </li>
+            <li>
+                <a class="navitem" href="/about"> About Me </a>
+            </li>
+            <li>
+                <a class="navitem" href="/resume"> Resume </a>
+            </li>
+            <li>
+                <a class="navitem" href="https://github.com/snehesht"> Github </a>
+            </li>
+        </ol>
     </div>
 </div>
 {% endblock %}

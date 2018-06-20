@@ -2,11 +2,14 @@
 @import "fonts";
 @import "theme";
 @import "button";
+@import "media-queries";
 
 html {
+    font-size: $regularSize;
     box-sizing: border-box;
     height: 100%;
     overflow: auto;
+    margin: 0 auto;
 
     ::-webkit-scrollbar {
         background: rgba($primary, 0.1);
@@ -19,335 +22,262 @@ html {
         background:rgba($primary, 0.3);
     }
 
-    a {
+    * {
         outline: 0;
+        text-decoration: none;
+    }
+
+    ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
 }
 
+// /* This example begins from 320px | 20em  to  30px @ 1920px */
+// @media (min-width: 20em) {
+//     :root {
+//         font-size: calc(0.8rem + ((1vw - .2em) / 1.37142857));
+//     }
+// }
+
+// /* 1rem(16px) @ 48em(768px) increasing to 2rem(32px) @ 120em(1920px) */
+// @media (min-width: 48em) {
+//     :root {
+//         font-size: calc(0.8rem + ((1vw - 0.48rem) * 1.3889));
+//         /* Where: * 1.3889 = 100 * font_Size_Difference / viewport_Width_Difference */
+//     }
+// }
+// /* Prevent font scaling beyond this breakpoint */
+// @media (min-width: 120em) {
+//     :root {
+//         font-size: 2em;
+//     }
+// }
+
 body {
-    color: $primary;
-    font-family: $fontFamily;
-    font-size:  $regularSize;
     display: grid;
-    // min-height: 100%;
+    min-height: 100%;
+    grid-template-columns: minmax(10%, max-content) auto  minmax(10%, max-content);
+    grid-template-rows: max-content auto minmax(10%, max-content);
+    grid-gap: 1em;
+    grid-template-areas: 
+    "header header header"
+    ". container ."
+    "footer footer footer";
+}
+
+// Header
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    grid-template-areas: 
+    "logo . navbar";
+    margin: 1.5 * $spaceUnit;
+}
+
+.logo {
+    grid-area: logo;
+    text-transform: uppercase;
+    font-family: $headerFont;
+    font-size: $baseSize;
+    letter-spacing: 1.1px;
+    cursor: pointer;
+    padding: 0.25 * $spaceUnit 0.5 * $spaceUnit;
+    border-left: 8px solid rgba($primary, 0.75);
+}
+
+.navbar {
+    grid-area: navbar;
+    font-family: $headerFont;
+    font-size: $smallSize;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    place-self: center;
+    ol {
+        display: inline-flex;
+        li {}
+    }
+}
+
+.navitem {
+    color: $black;
+    padding:  0.4 * $spaceUnit 1 * $spaceUnit;
+    &:hover {
+        color: white;
+        background-color: rgba($primary, 0.95);
+        border-radius: 2px;
+        transition: opacity 300ms cubic-bezier(.694,0,.335,1),
+            background-color 300ms cubic-bezier(.694,0,.335,1),
+            color 300ms cubic-bezier(.694,0,.335,1);
+    }
+}
+
+// Footer
+.footer {
+    text-align: center;
+    grid-area: footer;
+    font-family: $headerFont;
+    font-size: $regularSize;
+    color: $primary;
+
+    .emoji {
+        font-size: 2 * $regularSize;
+    }
+}
+
+// Content
+.container {
+    grid-area: container;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-// CSS Grid
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: auto auto max-content;
-}
-.header {
-    grid-row: 1;
-    grid-column: 1/13;
-    margin: 2 * $spaceUnit;
-};
-
-.container {
-    grid-row: 2;
-    grid-column: 3/11;
-    padding: 5 * $spaceUnit 0px;
-};
-
-.footer {
-    grid-row: 3;
-    grid-column: 1/13;
-    background-color: rgba($white, 0.1);
-    text-align: center;
-    .emoji {
-        font-size: 2 * $bigSize;
-    }
-    .text {
-        font-size: $regularSize;
-    }
-};
-
-@keyframes scale-up {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-}
-.navbar {
-    display: grid;
-    grid-template-columns: max-content auto max-content;
-    grid-auto-rows: 100%;
-}
-
-.logo {
-    padding: 0.5 * $spaceUnit $spaceUnit;
-    margin: auto;
-    grid-column: 1;
-    font-family: Lato, $fontFamily;
-    font-size: $regularSize;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: $primary;
-    border-left: 5px solid $primary;
-    cursor: pointer;
-    &:hover, &:focus, &:active {
-        display: block;
-        background-image: linear-gradient(to left, rgba($secondary, 0.1) 50%, rgba($secondary, 0.1) 0%, transparent 50%, transparent);
-        background-position: 100% 0;
-        background-size: 200% 100%;
-        transition: all .25s ease-in-out;
-        border-left: 5px solid rgba($secondary, 0.6);
-    }
-}
-.nav {
-    grid-column: 3;
-    float: right;
-    ol {
-        display: inline-flex;
-        list-style: none;
-    }
-}
-
-.navButton {
-    font-size: $smallSize;
-    font-family: Lato, $fontFamily;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: rgba($primary, 0.8);
-    border: 1px solid $white;
-    border-radius: 2px;
-    padding: 0.25*$spaceUnit 0.8*$spaceUnit;
-    margin: 0 $spaceUnit;
-    letter-spacing: 1.2px;
-
-    &:hover, &:focus, &:active {
-        border: 1px solid $primary;
-        background-color: $primary;
-        color: $white;
-        animation: 200ms ease-in 0s;
-        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    }
-}
-
 .post {
-    margin: 2 * $spaceUnit 0;
+    margin-bottom: 1.5 * $spaceUnit;
 }
 
 .post-year {
-    // width: 6.5vw;/*  */
-    padding: 2 * $spaceUnit 0;
+    margin-bottom: 1.5 * $spaceUnit;
+    font-family: $headerFont;
+    letter-spacing: 1.2px;
+    font-size: $baseSize;
+    color: $black;
     span {
-        margin: 0.5*$spaceUnit 0.3* $spaceUnit;
-        font-size: 0.8 * $bigSize;
-        color: $primary;
-        border-left: 5px solid rgba($secondary, 0.6);
-        background-color: rgba($primary, 0.1);
-        padding: 0.2 * $spaceUnit  $spaceUnit;
+        background-color: rgba($primary, 0.95);
+        color: $white;
+        padding: 0.2em 0.5em;
     }
 }
 
 .post-title {
-    a {
-        font-family: Quicksand, $fontFamily;
-        color: $primary;
-        text-decoration: none;
-        padding: 0.1*$spaceUnit 0.3*$spaceUnit;
-        font-size: $bigSize;
-        position: relative;
-        // Underline animation
-        // &:before {
-        //     content: "";
-        //     position: absolute;
-        //     width: 100%;
-        //     height: 2px;
-        //     bottom: 0;
-        //     left: 0;
-        //     background-color: rgba($secondary, 0.5);
-        //     visibility: hidden;
-        //     -webkit-transform: scaleX(0);
-        //     transform: scaleX(0);
-        //     -webkit-transition: all 0.3s ease-in-out 0s;
-        //     transition: all 0.3s ease-in-out 0s;
-        //   }
-        //   &:hover:before {
-        //     visibility: visible;
-        //     -webkit-transform: scaleX(1);
-        //     transform: scaleX(1);
-        //   }
-        // &:hover {
-        //     animation: 100ms ease-in 0s;
-        //     // background-color: rgba($secondary, 0.1);
-        // }
-    }
+    font-family: $headerFont;
+    font-size: $regularSize;
+    font-weight: 400;
+    color: $primary;
+}
+
+.post-title-single {
+    font-family: $headerFont;
+    font-size: 1.5 * $bigSize;
+    font-weight: 400;
+    color: $primary;
 }
 
 .post-metadata {
-    margin: 0.5*$spaceUnit 0* $spaceUnit;
-    font-family: Lato, $fontFamily;
-    
-    ol {
-        list-style: none;
-        display: inline-flex;
-        margin: 0 auto;
-        padding: 0;
-        li {
-            padding: 0px 0.2*$spaceUnit;
-        }
-    }
-    .date {
-        font-size: 0.8 * $regularSize;
-        color: $primary;
-        background-color: rgba($primary, 0.1);
-        padding: 0.15*$spaceUnit 0.3* $spaceUnit;
-    }
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-areas: 
+        "post-date post-tags";
+    margin-top: 0.3 * $spaceUnit;
+    font-family: $metaFont;
+    font-size: $smallSize;
+    color: $black;
+}
 
-    .tags {
-        margin: 0px 0.4 * $spaceUnit;
-        a {
-            color: $primary;
-            text-decoration: none;
-            padding: 3px 5px;
-            font-size: 0.7 * $regularSize;
-            letter-spacing: 1.1px;
-            color: $primary;
-            background-color: rgba($secondary, 0.15);
-            text-transform: uppercase;
-            margin: 0.15 * $spaceUnit;
-            &:hover {
-                // box-shadow: 0 8px 15px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
-                animation: 200ms ease-in 0s;
-            }
-        }
+.post-date {
+    grid-area: post-date;
+    margin-right: 0.5 * $spaceUnit;
+}
+
+.post-tags {
+    grid-area: post-tags;
+    .post-tag {
+        font-size: 0.9 * $smallSize;
+        padding: 0.2 * $spaceUnit 0.4 * $spaceUnit;
+        margin: 0 0.3 * $spaceUnit;
+        border-radius: 2px;
+        color: $black;
+        background-color: rgba($primary, 0.2);
     }
 }
 
 .post-content {
-    margin: 3*$spaceUnit 0.3* $spaceUnit;
-    line-height: 1.5 * $regularSize;
-    a {
-        color: $primary;
-        text-decoration: none;
-        color: rgba($secondary, 1);
-        position: relative;
-        &:before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: rgba($secondary, 1);
-            visibility: hidden;
-            -webkit-transform: scaleX(0);
-            transform: scaleX(0);
-            -webkit-transition: all 0.3s ease-in-out 0s;
-            transition: all 0.3s ease-in-out 0s;
-          }
-          &:hover:before {
-            visibility: visible;
-            -webkit-transform: scaleX(1);
-            transform: scaleX(1);
-          }
-        &:hover {
-            animation: 100ms ease-in 0s;
-            // background-color: rgba($secondary, 0.1);
-        }
-    }
+    margin-top: 3 * $spaceUnit;
+    font-family: $baseFonts;
+    font-size: $baseSize;
+    line-height: 1.35 * $baseSize;
+    color: $primary;
 
     img {
-        display: flex;
         margin: 0 auto;
-        padding: 2 * $spaceUnit 0;
-        &:after {
-            content: attr(alt);
-        }
+        text-align: center;
+        display: flex;
+        cursor: pointer;
     }
 
     pre {
-        margin: $spaceUnit 0;
-        border: 1px solid rgba($primary, 0.1);
-        border-radius: 2px;
+        border: 2px solid rgba($primary, 0.1);
+        border-radius: 3px;
+        padding: 0.5 * $spaceUnit;
         background-color: rgba($primary, 0.05);
-        padding: $spaceUnit;
-        overflow: auto;
-        
+        color: $primary;
+
         code {
-            background-color: rgba($primary, 0);
-            padding: 0.1 * $spaceUnit 0 * $spaceUnit;
+            font-size: $smallSize;
+            background-color: unset;
+            color: $primary;
         }
+    }
+
+    code {
+        color: $primary;
+        padding: 3px 5px;
+        background-color: rgba($green, 0.15);
+        border-radius: 3px;
+        font-size: $smallSize;
+        place-content: center;
+    }
+
+    a {
+        color: $primary;
+        text-decoration: underline;
+        text-underline-position: auto;
+        padding: 0px 2px;
+        &:hover, &:focus {
+            color: $white;
+            text-decoration: none;
+            background-color: rgba($primary, 0.95);
+            border-radius: 2px;
+            transition: opacity 300ms cubic-bezier(.694,0,.335,1),
+                background-color 300ms cubic-bezier(.694,0,.335,1),
+                color 300ms cubic-bezier(.694,0,.335,1);
+        }
+    }
+
+    p {
+        font-family: $baseFonts;
     }
     
-    code {
-        background-color: rgba($primary, 0.15);
-        padding: 0.1 * $spaceUnit 0.5 * $spaceUnit;
-    }
-}
-
-.aboutme {
-    .profile {
-        .profile-img {
-            text-align: center;
-            
-            img {
-                border-radius: 2px;
-                vertical-align: center;
-                box-shadow: 0 18px 30px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
-            }
-        }
-
-        .accounts {
-            display: inline-flex;
-            grid-auto-columns: auto;  
-            background-color: $lightGreen;  
-            padding: $spaceUnit;       
-            width: 100%;
-            justify-content: center;
-            .account {
-                margin: $spaceUnit;
-                
-                a {
-                    font-size: $regularSize;
-                    text-decoration: none;
-                    color: $white;
-                    display: flex;
-                    background-color: rgba($primary, 1);
-                    border-radius: 2px;
-                    padding: 0.3 * $spaceUnit;
-                    &:hover, &:focus {
-                        box-shadow: 0 18px 30px rgba(0,0,0,0.19), 0 4px 4px rgba(0,0,0,0.23);
-                    }
-                    img {
-                        width: 2 * $regularSize;
-                        height: 2 * $regularSize;
-                        padding: 6px;
-                        margin: 0px;
-                        
-                    }
-                    i {
-                        font-size: $bigSize;
-                        color: $white;
-                        background-color: rgba($primary, 0.5);
-                        padding: 2px 10px 2px 5px;
-                        border-right: 1px solid $white;
-                    }
-                    span {
-                        font-size: $regularSize;
-                        padding: 0px 10px;
-                        margin: auto;
-                        line-height: $bigSize;
-                        text-transform: uppercase;
-                        letter-spacing: 1.2px;
-                    }
-                }
-            }
-        }
-    }
-    .bio {
-        line-height: 1.5* $regularSize;
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $headerFont;
+        font-weight: 400;
+        padding: 0px 8px;
+        border-left: 8px solid rgba($primary, 0.95);
         color: $primary;
-        a {
-            text-decoration: none;
-            color: rgba($secondary, 1);  
-        }
     }
+    h1 {
+        font-size: 1.2 * $regularSize;
+    }
+
+    h2 {
+        font-size: 1.15 * $regularSize;
+    }
+
+     h3 {
+        font-size: 1.1 * $regularSize;
+     }
+
+     h4 {
+        font-size: 1.05 * $regularSize;
+     }
+
+     strong {
+        font-family: $headerFont;
+        padding: 3px 8px;
+        background-color: rgba($primary, 0.85);
+        border-radius: 3px;
+        color: $white;
+     }
 }

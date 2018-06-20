@@ -51,8 +51,9 @@ def resume():
 # List of completed and going on projects
 @app.route('/projects')
 def projects_page():
-    return redirect('https://github.com/snehesht')
-    # return render_template('projects.html')
+    # return redirect('https://github.com/snehesht')
+    data = DS.get_metadata()
+    return render_template('projects.html', content=data)
 
 
 # About Me Page

@@ -9,6 +9,7 @@ import arrow
 # Global Config
 DATA_DIR = GIT_REPO_DIR_NAME
 POSTS_DATA_DIR = DATA_DIR + "/public"
+PROJECTS_DATA_DIR = DATA_DIR + "/projects"
 FILE_DOT_MD_REGEX = ACCEPTED_FILE_FORMATS
 """
         Class to access data
@@ -37,7 +38,6 @@ class DataStore(object):
                     key = f.replace(".md","")
                     value = fp.read()
                     data[key] = value
-
         self.data = data
 
     # Meta data for the posts

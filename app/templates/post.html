@@ -5,14 +5,14 @@
 
 {% block container %}
 <div class="container">
-    <div class="post-title">
-        <a href="">{{ metadata.title }}</a>
-    </div>
+    <a class="post-title-single" href="">{{ metadata.title }}</a>
     <div class="post-metadata">
-        <ol>
-            <li><span class="date">{{ metadata.date }}</span></li>
-            <li class="tags">Filed under {% for tag in metadata.tags %} <a href="">{{ tag }}</a>{% endfor %}</li>
-        </ol>
+        <div class="post-date">
+            {{ metadata.date }}
+        </div>
+        <div class="post-tags">
+                <span>Filed under </span>{% for tag in metadata.tags %} <a class="post-tag" href="">{{ tag }}</a>{% endfor %}
+        </div>
     </div>
     <div class="post-content">
         {{ content|safe }}
