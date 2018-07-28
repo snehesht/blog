@@ -12,6 +12,7 @@
 <body>
     {% block header %} {% include 'header.html' %} {% endblock %}
     {% block container %}{% endblock %}
-    {% block footer %} {% include 'footer.html' %} {% endblock %}
+    <!-- {% block footer %} {% include 'footer.html' %} {% endblock %} -->
 </body>
+<script src="{{ url_for('static', filename='public/app.js') }}"></script>
 </html>

@@ -3,13 +3,15 @@
 @import "theme";
 @import "button";
 @import "media-queries";
+@import "responsive";
 
 html {
-    font-size: $regularSize;
     box-sizing: border-box;
     height: 100%;
     overflow: auto;
     margin: 0 auto;
+    max-width: 100%;
+    padding: $spaceUnit;
 
     ::-webkit-scrollbar {
         background: rgba($primary, 0.1);
@@ -32,28 +34,25 @@ html {
         padding: 0;
         list-style: none;
     }
+
+    font-size: 16px;
+
+    @include mobile {
+        font-size: calc(0.8rem + ((1vw - .2em) / 1.37142857));
+        cursor: pointer;
+    }
+
+    @include tablet {
+        font-size: $baseSize;
+        cursor: pointer;
+    }
+
+    @include desktop {
+        font-size: $baseSize;
+        max-width: 1024px;
+    }
+
 }
-
-// /* This example begins from 320px | 20em  to  30px @ 1920px */
-// @media (min-width: 20em) {
-//     :root {
-//         font-size: calc(0.8rem + ((1vw - .2em) / 1.37142857));
-//     }
-// }
-
-// /* 1rem(16px) @ 48em(768px) increasing to 2rem(32px) @ 120em(1920px) */
-// @media (min-width: 48em) {
-//     :root {
-//         font-size: calc(0.8rem + ((1vw - 0.48rem) * 1.3889));
-//         /* Where: * 1.3889 = 100 * font_Size_Difference / viewport_Width_Difference */
-//     }
-// }
-// /* Prevent font scaling beyond this breakpoint */
-// @media (min-width: 120em) {
-//     :root {
-//         font-size: 2em;
-//     }
-// }
 
 body {
     display: grid;
@@ -63,8 +62,9 @@ body {
     grid-gap: 1em;
     grid-template-areas: 
     "header header header"
-    ". container ."
+    "container container container"
     "footer footer footer";
+
 }
 
 // Header
@@ -74,7 +74,11 @@ body {
     grid-template-columns: max-content auto max-content;
     grid-template-areas: 
     "logo . navbar";
-    margin: 1.5 * $spaceUnit;
+    padding-bottom: $spaceUnit;
+    margin: 2 * $spaceUnit 0em;
+    @include predesktop {
+        margin: 0.5* $spaceUnit 0em;
+    }
 }
 
 .logo {
@@ -86,33 +90,93 @@ body {
     cursor: pointer;
     padding: 0.25 * $spaceUnit 0.5 * $spaceUnit;
     border-left: 8px solid rgba($primary, 0.75);
+    @include predesktop {
+        font-size: $regularSize;
+        padding: 0 * $spaceUnit 0 * $spaceUnit;
+        border-left: 0px solid rgba($primary, 0.75);
+    }
+    
 }
 
-.navbar {
-    grid-area: navbar;
-    font-family: $headerFont;
-    font-size: $smallSize;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    place-self: center;
-    ol {
-        display: inline-flex;
-        li {}
+// Navigation
+@include desktop {
+    .navbar-wrapper {
+        grid-area: navbar;
+    }
+    .navbarmenu {
+        display: none;
+    }
+
+    .navbar {
+        font-family: $headerFont;
+        font-size: $smallSize;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        place-self: center;
+        ol {
+            display: inline-flex;
+            li {}
+        }
+    }
+    
+    .navitem {
+        color: $black;
+        padding:  0.4 * $spaceUnit 1 * $spaceUnit;
+        &:hover {
+            color: white;
+            background-color: rgba($primary, 0.95);
+            border-radius: 2px;
+            transition: opacity 300ms cubic-bezier(.694,0,.335,1),
+                background-color 300ms cubic-bezier(.694,0,.335,1),
+                color 300ms cubic-bezier(.694,0,.335,1);
+        }
     }
 }
 
-.navitem {
-    color: $black;
-    padding:  0.4 * $spaceUnit 1 * $spaceUnit;
-    &:hover {
-        color: white;
-        background-color: rgba($primary, 0.95);
-        border-radius: 2px;
-        transition: opacity 300ms cubic-bezier(.694,0,.335,1),
-            background-color 300ms cubic-bezier(.694,0,.335,1),
-            color 300ms cubic-bezier(.694,0,.335,1);
+@include predesktop {
+    .navbar-wrapper {
+        grid-area: navbar;
+        display: flex;
+    }
+    .navbarmenu {
+        display: initial;
+        padding: 0.5 * $spaceUnit $spaceUnit;
+        cursor: pointer;
+    }
+    .navbar {
+        font-family: $headerFont;
+        font-size: $smallSize;
+        text-transform: uppercase;
+        letter-spacing: 1.1px;
+        display: none;
+        ol {
+            display: inline-table;
+            // border: 1px solid $primary;
+            // padding: 0.5 * $spaceUnit 0.1 * $spaceUnit;
+            // border-radius: 5px;
+            li {
+                // float: right;
+                color: $white;
+                padding: 0.5 * $spaceUnit;
+            }
+        }
+    }
+
+    .navitem {
+        color: $black;
+        padding:  0.5 * $spaceUnit $spaceUnit;
+        &:hover, &:focus {
+            color: white;
+            background-color: rgba($primary, 0.95);
+            border-radius: 2px;
+            transition: opacity 300ms cubic-bezier(.694,0,.335,1),
+                background-color 300ms cubic-bezier(.694,0,.335,1),
+                color 300ms cubic-bezier(.694,0,.335,1);
+        }
     }
 }
+
+// Mobile Navigation
 
 // Footer
 .footer {
@@ -130,8 +194,6 @@ body {
 // Content
 .container {
     grid-area: container;
-    max-width: 1440px;
-    margin: 0 auto;
 }
 
 .post {
@@ -153,14 +215,14 @@ body {
 
 .post-title {
     font-family: $headerFont;
-    font-size: $regularSize;
+    font-size: $bigSize;
     font-weight: 400;
     color: $primary;
 }
 
 .post-title-single {
     font-family: $headerFont;
-    font-size: 1.5 * $bigSize;
+    font-size: $bigSize;
     font-weight: 400;
     color: $primary;
 }
@@ -174,6 +236,15 @@ body {
     font-family: $metaFont;
     font-size: $smallSize;
     color: $black;
+    @include mobile {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: max-content auto;
+        grid-row-gap: 3px;
+        grid-template-areas: 
+        "post-date"
+        "post-tags";
+    }
 }
 
 .post-date {
@@ -190,34 +261,58 @@ body {
         border-radius: 2px;
         color: $black;
         background-color: rgba($primary, 0.2);
+
+        @include mobile {
+            font-size: $smallSize;
+            padding: 0.1 * $spaceUnit 0.2 * $spaceUnit;
+            margin: 0 0.1 * $spaceUnit;
+            border-radius: 2px;
+            color: $black;
+            background-color: rgba($primary, 0.2);
+        }
     }
 }
 
 .post-content {
-    margin-top: 3 * $spaceUnit;
+    margin-top: 2 * $spaceUnit;
     font-family: $baseFonts;
     font-size: $baseSize;
     line-height: 1.35 * $baseSize;
     color: $primary;
+
+    @include mobile {
+        max-width: 90vw;
+    }
+   
 
     img {
         margin: 0 auto;
         text-align: center;
         display: flex;
         cursor: pointer;
+        @include predesktop {
+            overflow-x:auto;
+            max-width: 90vw;
+        }
     }
 
     pre {
-        border: 2px solid rgba($primary, 0.1);
+        border: 1px solid rgba($primary, 0.3);
         border-radius: 3px;
         padding: 0.5 * $spaceUnit;
-        background-color: rgba($primary, 0.05);
+        background-color: rgba($primary, 0.0625);
         color: $primary;
+        overflow: auto;
+        max-width: 100%;
+        overflow-wrap: normal;
 
         code {
+            font-family: $monospaceFont;
             font-size: $smallSize;
             background-color: unset;
             color: $primary;
+            padding: 0px;
+            overflow: auto;
         }
     }
 
@@ -227,6 +322,7 @@ body {
         background-color: rgba($green, 0.15);
         border-radius: 3px;
         font-size: $smallSize;
+        font-family: $monospaceFont;
         place-content: center;
     }
 
@@ -248,14 +344,16 @@ body {
 
     p {
         font-family: $baseFonts;
+        margin: 0.5 * $spaceUnit 0;
     }
     
     h1, h2, h3, h4, h5, h6 {
         font-family: $headerFont;
         font-weight: 400;
-        padding: 0px 8px;
-        border-left: 8px solid rgba($primary, 0.95);
+        padding: 0 0.5 * $spaceUnit;
+        border-left: 5px solid rgba($primary, 0.95);
         color: $primary;
+        margin: $spaceUnit 0;
     }
     h1 {
         font-size: 1.2 * $regularSize;
@@ -275,7 +373,8 @@ body {
 
      strong {
         font-family: $headerFont;
-        padding: 3px 8px;
+        padding: 3px 0.5*$spaceUnit;
+        margin: $spaceUnit 0;
         background-color: rgba($primary, 0.85);
         border-radius: 3px;
         color: $white;

@@ -34,7 +34,7 @@ def reload_data():
 # Index View
 @app.route('/')
 def index():
-    #return render_template('index.html')
+    # return render_template('index.html')
     return redirect(url_for('blog_index_page'))
 
 
