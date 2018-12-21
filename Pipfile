@@ -19,11 +19,10 @@ regex = "==2017.6.7"
 six = "==1.10.0"
 tornado = "==4.5.1"
 tzlocal = "==1.4"
-Flask = "==0.11.1"
-"Jinja2" = "==2.8"
 Markdown = "==2.6.6"
 MarkupSafe = "==0.23"
 Pigments = "==1.6"
 Werkzeug = "==0.11.10"
+flask = "*"
 
 [dev-packages]

@@ -2,14 +2,15 @@ arrow==0.10.0
 cffi==1.9.1
 click==6.6
 dateparser==0.6.0
-Flask==0.11.1
+Flask==1.0.2
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2==2.10
 Markdown==2.6.6
 MarkupSafe==0.23
 misaka==2.0.0
 mistune==0.7.3
 Pigments==1.6
+pkg-resources==0.0.0
 pycparser==2.17
 python-dateutil==2.6.0
 pytz==2017.2
@@ -18,4 +19,4 @@ ruamel.yaml==0.15.9
 six==1.10.0
 tornado==4.5.1
 tzlocal==1.4
-Werkzeug==0.11.10
+Werkzeug==0.14.1
